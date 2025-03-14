@@ -85,8 +85,8 @@ h2 {
 
 .profile-contents {
   display: flex;
-  justify-content: space-between;
   gap: 20px;
+  justify-content: space-between;
   margin: 0 auto;
 }
 
@@ -112,26 +112,31 @@ footer {
     justify-content: space-around;
     padding-left: 0;
   }
-  .resume {
-    margin-right: 0;
+
+  .resume + ul {
+    font-size: 12px;
   }
 
   .main-visual {
-    height: 1280px;
+    background-size: 240%;
   }
 
   .introduce-content {
     display: grid;
     grid-template-columns: 1fr;
+    gap: 0;
   }
 
   .introduce-text h3 {
     text-align: center;
   }
+
+  .introduce-text p {
+    font-size: 18px;
+  }
   
   .introduce-content img {
     margin: 0 auto;
-    padding: 0;
   }
 
   .profile-contents {
