@@ -16,13 +16,8 @@ nav ul {
   align-items: center;
   display: flex;
   gap: 30px; 
+  justify-content: space-between;
   list-style: none;
-  padding-left: 100px;
-  padding-right: 50px;
-}
-
-.resume {
-  margin-right: auto;
 }
 
 figure {
