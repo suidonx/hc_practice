@@ -1,0 +1,150 @@
+/* PC用レイアウト */
+.container {
+  margin: 0 auto;
+  padding: 0 4%;
+  width: 960px;
+}
+
+.resume {
+  background-color: #384152;
+  color: #fff;
+  font-size: 24px;
+  padding: 8px 20px;
+}
+
+nav ul {
+  align-items: center;
+  display: flex;
+  gap: 30px; 
+  justify-content: space-between;
+  list-style: none;
+}
+
+figure {
+  text-align: center;
+}
+
+.main-visual {
+  background-image: url(../images/main.png);
+  background-position: center;
+  height: 600px;
+  margin: 0 auto;
+  width: 100vw;
+}
+
+section {
+  text-align: center;
+  margin: 0 auto;
+}
+
+h2 {
+  border-bottom: 1px solid #000;
+  display: inline-block;
+  font-size: 34px;
+  padding-bottom: 5px;
+}
+
+.introduce {
+  margin-top: 50px;
+}
+
+.introduce-content {
+  align-items: start;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 80px;
+}
+
+.introduce-text {
+  text-align: left;
+}
+
+.introduce-text h3 {
+  margin-top: 0;
+}
+
+.introduce-text p {
+  line-height: 25px;
+}
+
+.introduce-content img {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+}
+
+.profile {
+  margin-top: 50px;  
+}
+
+.profile h2 {
+  margin-bottom: 50px;
+}
+
+.profile-contents {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.profile-content img {
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+footer {
+  border-bottom: 1px solid #000;
+  margin-top: 130px;
+  text-align: center;
+}
+
+/* スマホ用レイアウト */
+@media screen and (max-width: 600px) {
+  .container {
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  nav ul {
+    justify-content: space-around;
+    padding-left: 0;
+  }
+
+  .resume + ul {
+    font-size: 12px;
+  }
+
+  .main-visual {
+    background-size: 240%;
+  }
+
+  .introduce-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .introduce-text h3 {
+    text-align: center;
+  }
+
+  .introduce-text p {
+    font-size: 18px;
+  }
+  
+  .introduce-content img {
+    margin: 0 auto;
+  }
+
+  .profile-contents {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  footer {
+    border-bottom: 10px solid #000;
+  }
+}
