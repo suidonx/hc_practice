@@ -7,18 +7,13 @@ def divide_groups(groups):
     # 6人のリストをランダムにシャッフルする
     random.shuffle(groups)
 
-    # ランダムで0か1か決める
-    pattern = random.randint(0, 1)
+    # ランダムで2人と4人、3人と3人のどちらの人数で分けるか決める
+    pattern = random.randint(2, 3)
 
-    # 1の場合、2人と4人に分ける
-    if pattern:
-        print(sorted(groups[:2]))
-        print(sorted(groups[2:]))
+    # それぞれの組のメンバーを出力する
+    print(sorted(groups[:pattern]))
+    print(sorted(groups[pattern:]))
     
-    # 0の場合、3人と3人に分ける
-    else:
-        print(sorted(groups[:3]))
-        print(sorted(groups[3:]))
 
 if __name__ == '__main__':
     divide_groups(groups)
