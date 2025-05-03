@@ -73,15 +73,15 @@ last_day = (next_month - date).days
 # 指定した月の1日は何曜日か計算
 weekday_of_first_day = date.weekday()
 
+# 1日目の曜日に合わせて空白を入れて出力
+print('   ' * weekday_of_first_day, end='')
+
 # 1日から31日までを表示
-for i, v in enumerate(range(1,last_day+1)):
-    # 1日目の曜日に合わせて空白を入れる
-    if i == 0:
-        print('   ' * weekday_of_first_day, end='')
+for i, v in enumerate(range(1, last_day + 1)):
 
     # 今日の日付をハイライトする
-    if v == today.day:
-        print('\033[48;2;204;204;204m'+f'{v:2d}'+'\033[0m', end='')
+    if today.month == month and v == today.day:
+        print('\033[48;2;204;204;204m' + f'{v:2d}' + '\033[0m', end='')
     else:
         print(f'{v:2d}', end='')
 
