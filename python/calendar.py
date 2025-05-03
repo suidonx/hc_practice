@@ -11,18 +11,18 @@ locale.setlocale(locale.LC_TIME, 'ja_JP.UTF-8')
 def get_month(argv):
     idx = find_dash_m(argv)
     # -mが存在しない、または-mのインデックスがリストの最後の要素の場合、今月をreturnする
-    if idx is None or idx == len(argv)-1:
+    if idx is None or idx == len(argv) - 1:
         return datetime.date.today().month
     # -mで指定された値が有効な値の場合、その月をreturnする
     if is_valid_dash_m(argv, idx):
-        return int(argv[idx+1])
+        return int(argv[idx + 1])
 
 
 # -mで指定した値が文字列もしくは不正な月の場合はエラーメッセージを出力してプログラムを終了させる
 # -mで指定した値が有効の場合はTrueを返す
 def is_valid_dash_m(argv, idx):
     try:
-        dash_m_value = int(argv[idx+1])
+        dash_m_value = int(argv[idx + 1])
         if 1 <= dash_m_value <= 12:
             return True
         else:
@@ -64,10 +64,10 @@ print(f'{formatted_date:^{space_fill}}')
 print(formatted_weekdays)
 
 # 月の最終日は何日か計算
+# 指定月が12月の場合、西暦をインクリメント
 if month == 12:
-    next_month = datetime.date(year+1, 1, 1)
-else:
-    next_month = datetime.date(year, month%12+1, 1)
+    year += 1
+next_month = datetime.date(year, month % 12 + 1, 1)
 last_day = (next_month - date).days
 
 # 指定した月の1日は何曜日か計算
