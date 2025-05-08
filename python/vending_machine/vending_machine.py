@@ -33,45 +33,41 @@ class VendingMachine:
     def sales(self, sales):
         self._sales = sales
 
-    # ペプシが在庫に存在し、在庫が0より大きければ購入できる
-    def purchasable_pepsi(self):
-        for stock in self.stock:
-            if stock[0].name == "Pepsi" and stock[1] > 0:
-                print("ペプシが購入可能です")
-                return
-        print("ペプシは購入できません")
+    # 自動販売機で任意のジュースは購入できるのかどうか取得する
+    def can_purchasable_juice(self, juice_name):
+        for juice in self.stock:
+            if juice.name == juice_name:
+                return True
+        return False
 
     # 購入可能なドリンクのリストを取得
     def get_purchasable_drinks(self):
         purchasble_drinks = []
-        for stock in self.stock:
-            if stock[1] > 0:
-                purchasble_drinks.append([stock[0].name, stock[1]])
+        for juice in self.stock:
+            if juice.name not in purchasble_drinks:
+                purchasble_drinks.append(juice.name)
         return purchasble_drinks
 
     # 自動販売機に在庫を補充する
-    def add_stock(self, juice, num_of_bottles):
-        self.stock.append([juice, num_of_bottles])
+    def add_stock(self, juice):
+        self.stock.append(juice)
 
     # 購入処理
     # suicaと購入したいジュースの名前を引数に入れる
-    def purchase(self, suica, juice_name, num):
-        for stock in self.stock:
-            # stockのリストが購入するジュース名と異なる場合はcontinueする
-            if stock[0].name != juice_name:
-                continue
-            if num < 0:
-                raise ValueError("0以上の整数を入力してください")
-
-            # ジュースの在庫があり、かつSuicaのチャージ金額がジュース値段以上であれば購入処理をする
-            if stock[1] >= num and suica.balance >= stock[0].price:
-                # 在庫から買った本数分減らす
-                stock[1] -= num
-                # 売り上げ金額を増やす
-                self.sales += stock[0].price * num
-                # Suicaのチャージ残高を減らす
-                suica.balance -= stock[0].price
-                break
-            else:
-                # 購入できない場合は例外を発生
+    def purchase(self, suica, juice_name):
+        for i, juice in enumerate(self.stock):
+            # 購入するジュースが在庫に無い、もしくはチャージ残高が足りない場合、例外を出す
+            if not (
+                self.can_purchasable_juice(juice_name) and suica.balance >= juice.price
+            ):
                 raise PurchaseException
+            # 購入するジュースの名前とjuice.nameが一致して無ければcontinue
+            if juice_name != juice.name:
+                continue
+            # 在庫から買った本数分減らす
+            self.stock.pop(i)
+            # 売り上げ金額を増やす
+            self.sales += juice.price
+            # Suicaのチャージ残高を減らす
+            suica.balance -= juice.price
+            break
