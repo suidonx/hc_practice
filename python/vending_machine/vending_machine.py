@@ -5,11 +5,11 @@ from juice import Juice
 class VendingMachine:
     def __init__(self):
         # 自動販売機の在庫を定義
-        self._stock = [
-            [Juice("Pepsi", 150), 5],
-            [Juice("Monster", 230), 5],
-            [Juice("Ilohas", 120), 5],
-        ]
+        self._stock = []
+        for i in range(5):
+            self._stock.append(Juice("Pepsi", 150))
+            self._stock.append(Juice("Monster", 230))
+            self._stock.append(Juice("Ilohas", 120))
         # 自動販売機の売り上げを定義
         self._sales = 0
 
