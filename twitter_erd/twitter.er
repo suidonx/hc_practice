@@ -30,14 +30,6 @@ title {label: "twitter ER diagram", size: "20"}
   created_at {label: "datetime, not null"}
   updated_at {label: "datetime, not null"}
 
-[user_messages] {bgcolor: "#fcecec"}
-  *id {label: "bigint, not null"}
-  user_id {label: "bigint, not null, FK(users)"}
-  sent_id {label: "bigint, not null"}
-  message_id {label: "bigint, not null, FK(messages)"}
-  created_at {label: "datetime, not null"}
-  updated_at {label: "datetime, not null"}
-
 [messages] {bgcolor: "#d4eff1"}
   *id {label: "bigint, not null"}
   content {label: "varchar"}
