@@ -23,9 +23,9 @@ title {label: "twitter ER diagram", size: "20"}
   created_at {label: "datetime, not null"}
   updated_at {label: "datetime, not null"}
 
-[follows] {bgcolor: "#ececfc"}
+[follows] {bgcolor: "#d4eff1"}
   *id {label: "bigint, not null"}
-  user_id {label: "bigint, not null, FK(users)"}
+  follower_id {label: "bigint, not null"}
   followed_id {label: "bigint, not null"}
   created_at {label: "datetime, not null"}
   updated_at {label: "datetime, not null"}
