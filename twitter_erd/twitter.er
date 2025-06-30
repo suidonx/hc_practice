@@ -41,6 +41,8 @@ title {label: "twitter ER diagram", size: "20"}
 [messages] {bgcolor: "#d4eff1"}
   *id {label: "bigint, not null"}
   content {label: "varchar"}
+  recipient_id {label: "bigint, not null"}
+  sender_id {label: "bigint, not null"}
   created_at {label: "datetime, not null"}
   updated_at {label: "datetime, not null"}
 
