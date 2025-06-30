@@ -89,17 +89,11 @@ likes 1--1 `like_notifies`
 
 tweets 1--* `bookmarks`
 tweets 1--* `likes`
-tweets 1--1 `user_tweets`
 tweets 1--* `retweets`
 
-messages 1--1 `user_messages`
-
 users 1--* `bookmarks`
-users 1--* `follows`
 users 1--* `follow_notifies`
 users 1--* `likes`
 users 1--* `like_notifies`
 users 1--* `retweets`
 users 1--1 `signups`
-users 1--* `user_messages`
-users 1--* `user_tweets`
