@@ -13,7 +13,8 @@ let todoCount = 0;
 
 // 新規todoを追加する
 createButton.addEventListener("click", (event) => {
-  let todoItemName = inputToDoItem.value;
+  // 前後の空白を除く
+  let todoItemName = inputToDoItem.value.trim();
 
   // 入力フォームに文字が入力されている場合、処理を行う
   if (todoItemName) {
