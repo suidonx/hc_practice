@@ -61,35 +61,15 @@ function stopLoading() {
   }, 2000);
 }
 
-// ラジオボタンの処理
-const allCharactersEl = document.getElementById("all");
-const kisatsutaiEl = document.getElementById("kisatsutai");
-const hashiraEl = document.getElementById("hashira");
-const oniEl = document.getElementById("oni");
-
-allCharactersEl.addEventListener("click", () => {
-  startLoading();
-  appendKimetsuCharacters(allCharactersEl.id);
-  stopLoading();
-});
-
-kisatsutaiEl.addEventListener("click", () => {
-  startLoading();
-  (appendKimetsuCharacters(kisatsutaiEl.id), stopLoading());
-  stopLoading();
-});
-
-hashiraEl.addEventListener("click", () => {
-  startLoading();
-  appendKimetsuCharacters(hashiraEl.id);
-  stopLoading();
-});
-
-oniEl.addEventListener("click", () => {
-  startLoading();
-  appendKimetsuCharacters(oniEl.id);
-  stopLoading();
+// ラジオボタンにイベントを追加する
+document.getElementsByName("kimetsu").forEach((value) => {
+  value.addEventListener("click", (e) => {
+    startLoading();
+    appendKimetsuCharacters(value.id);
+    stopLoading();
+  });
 });
 
 // デフォルトで全キャラクター一覧を表示
+const allCharactersEl = document.getElementById("all");
 appendKimetsuCharacters(allCharactersEl.id);
