@@ -19,7 +19,7 @@ async function appendKimetsuCharacters(fileName) {
   const characters = await fetchKimetsuCharacters(fileName);
 
   // 取得したデータを使って、tr要素を1つずつ作成して追加
-  for (character of characters) {
+  for (const character of characters) {
     const trEl = document.createElement("tr");
     trEl.className = "data";
 
