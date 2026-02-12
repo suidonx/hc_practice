@@ -1,8 +1,8 @@
+const BASE_URL = "https://ihatov08.github.io";
+
 // 鬼滅キャラクターをfetchする
 async function fetchKimetsuCharacters(fileName) {
-  const response = await fetch(
-    `https://ihatov08.github.io/kimetsu_api/api/${fileName}.json`,
-  );
+  const response = await fetch(BASE_URL + `/kimetsu_api/api/${fileName}.json`);
   return await response.json();
 }
 
@@ -30,7 +30,7 @@ async function appendKimetsuCharacters(fileName) {
     nameTdEl.innerText = character.name;
 
     const imgEl = document.createElement("img");
-    imgEl.src = `https://ihatov08.github.io${character.image}`;
+    imgEl.src = BASE_URL + `${character.image}`;
     ImageTdEl.appendChild(imgEl);
 
     CategoryTdEl.innerText = character.category;
