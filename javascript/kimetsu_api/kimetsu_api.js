@@ -62,10 +62,10 @@ function stopLoading() {
 }
 
 // ラジオボタンにイベントを追加する
-document.getElementsByName("kimetsu").forEach((value) => {
-  value.addEventListener("click", (e) => {
+document.getElementsByName("kimetsu").forEach((radioEl) => {
+  radioEl.addEventListener("click", (e) => {
     startLoading();
-    appendKimetsuCharacters(value.id);
+    appendKimetsuCharacters(e.target.value);
     stopLoading();
   });
 });
